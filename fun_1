@@ -1,0 +1,23 @@
+def instance(file,Veh):
+    #Datos
+    Da=[]
+    with open(file) as f:
+        for line in f:
+            g = line.split()
+            h = [float(i) for i in g]
+            Da = Da + [h]
+    
+    #Capacidad de cada vehículo
+    ca=Da[1]; Ca=ca[1]
+    
+    #Tiempo de retorno: round(1.05z*/V), z* es el costo de la solución del VRP
+    if file == 'p01.vrp': TH1 = round(1.05*524.61/Veh)          # z*(p01)=524.61
+    if file == 'p02.vrp': TH1 = round(1.05*835.26/Veh)          # z*(p02)=835.26
+    if file == 'p03.vrp': TH1 = round(1.05*826.14/Veh)          # z*(p03)=826.14
+    if file == 'p04.vrp': TH1 = round(1.05*1028.42/Veh)         # z*(p04)=1028.42
+    if file == 'p05.vrp': TH1 = round(1.05*1291.44/Veh)         # z*(p05)=1291.44
+    
+    #Matriz de coordenadas y demanda
+    ma=Da[2:len(Da)]; Ma=[i[0:5] for i in ma]
+    
+    return Ca,Ma,TH1
