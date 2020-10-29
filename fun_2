@@ -1,0 +1,10 @@
+def Distancias(Ma):
+    Dt = [[0 for i in Ma] for j in Ma]
+    for i in range(len(Ma)):
+        ci=Ma[i];
+        for j in range(i+1,len(Ma)):
+            cj=Ma[j];
+            Dij=((ci[1]-cj[1])**2+(ci[2]-cj[2])**2)**(1/2)
+            Dt[i][j]=Dij
+            Dt[j][i]=Dij
+    return Dt
